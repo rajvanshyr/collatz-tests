@@ -53,16 +53,15 @@ class TestCollatz(TestCase):
         self.assertEqual(range_start, 1000000000000)
         self.assertEqual(range_end, 1000000000000)
 
+    @staticmethod
     @expectedFailure
-    def test_read_3(self):
+    def test_read_3():
         """
         Tests the collatz_read function with faulty input (non integers)
         Expected to fail.
         """
         string = "a b\n"
-        range_start, range_end = collatz_read(string)
-        self.assertEqual(range_start, 1)
-        self.assertEqual(range_end, 10)
+        collatz_read(string)
 
     # ----
     # cycle_length
@@ -155,8 +154,10 @@ class TestCollatz(TestCase):
         Tests the collatz_print function with really large integers
         """
         writer = StringIO()
-        collatz_print(writer, "1000000000000", "1000000000000", "1000000000000")
-        self.assertEqual(writer.getvalue(), "1000000000000 1000000000000 1000000000000\n")
+        collatz_print(writer, "1000000000000",
+                      "1000000000000", "1000000000000")
+        self.assertEqual(writer.getvalue(),
+                         "1000000000000 1000000000000 1000000000000\n")
 
     def test_print_3(self):
         """
