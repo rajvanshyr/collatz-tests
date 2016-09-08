@@ -65,6 +65,16 @@ class TestCollatz(TestCase):
         result = collatz_eval(900, 1000)
         self.assertEqual(result, 174)
 
+    def test_eval_5(self):
+        """Test backwards input."""
+        result = collatz_eval(1000, 900)
+        self.assertEqual(result, 174)
+
+    def test_eval_6(self):
+        """Test large numbers."""
+        result = collatz_eval(46996, 78372)
+        self.assertEqual(result, 351)
+
     # -----
     # print
     # -----
@@ -93,6 +103,13 @@ class TestCollatz(TestCase):
     def test_solve_2(self):
         """Assert extra test for long string processing."""
         read_string = StringIO("10823 43615\n30594 59978\n2633 26475\n")
+        writer = StringIO()
+        collatz_solve(read_string, writer)
+        self.assertEqual(writer.getvalue(), "10823 43615 324\n30594 59978 340\n2633 26475 282\n")
+    
+    def test_solve_3(self):
+        """Test blank lines and spaces."""
+        read_string = StringIO("10823 43615\n\n   30594 59978\n2633 26475\n")
         writer = StringIO()
         collatz_solve(read_string, writer)
         self.assertEqual(writer.getvalue(), "10823 43615 324\n30594 59978 340\n2633 26475 282\n")
