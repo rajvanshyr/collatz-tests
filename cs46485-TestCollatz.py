@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# pylint: disable=R0904
 
 # -------------------------------
 # projects/collatz/TestCollatz.py
@@ -77,7 +78,7 @@ class TestCollatz(TestCase):
     # cycle_length
     # ----
 
-    def cycle_length_1(self):
+    def test_cycle_length_1(self):
         """
         Runs cycle_length with value of 1
         Should run into the base case
@@ -85,7 +86,7 @@ class TestCollatz(TestCase):
         cycle_len = cycle_length(1)
         self.assertEqual(cycle_len, 1)
 
-    def cycle_length_2(self):
+    def test_cycle_length_2(self):
         """
         Runs cycle_length with value of 53
         Should return value of 12
@@ -93,7 +94,7 @@ class TestCollatz(TestCase):
         cycle_len = cycle_length(53)
         self.assertEqual(cycle_len, 12)
 
-    def cycle_length_3(self):
+    def test_cycle_length_3(self):
         """
         Runs cycle_length with value of 99999
         Should return value of 227
@@ -203,7 +204,7 @@ class TestCollatz(TestCase):
     # solve
     # -----
 
-    def test_solve_empty(self):
+    def test_solve_1(self):
         """
         Tests the solver, writer, and reader
         Makes sure the right value is received and printed
@@ -215,13 +216,8 @@ class TestCollatz(TestCase):
         self.assertEqual(
             writer.getvalue(), "719 6121 238\n1 23945 282\n")
 
-    def test_solve_1(self):
-        """
-        Tests the solver, writer, and reader
-        Makes sure the right value is received and printed
-        """
 
-    def test_solve(self):
+    def test_solve_2(self):
         """
         Tests the solver, writer, and reader
         Makes sure the right value is received and printed
@@ -232,7 +228,7 @@ class TestCollatz(TestCase):
         self.assertEqual(
             writer.getvalue(), "20 100 119\n1 999999 525\n40000 20 324\n1 2 2\n")
 
-    def test_solve_2(self):
+    def test_solve_3(self):
         """
         Tests the solver, writer, and reader
         Makes sure the right value is received and printed
