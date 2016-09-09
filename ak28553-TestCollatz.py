@@ -129,7 +129,7 @@ class TestCollatz(TestCase):
         collatz_solve(reader, writer)
         self.assertEqual(
             writer.getvalue(),
-            "1 999999 396\n200 100 125\n201 210 89\n900 1000 174\n")
+            "1 999999 525\n200 100 125\n201 210 89\n900 1000 174\n")
 
     def test_solve2(self):
         """ testing solve collatz: test 2 """
